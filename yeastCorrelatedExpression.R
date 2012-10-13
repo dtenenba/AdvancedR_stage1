@@ -1,4 +1,4 @@
-correlationFinder <- function  () {
+correlationFinder <- function() {
   dataFile="sub_combined_complete_dataset_526G_198E.txt"
   cor.threshold <- 0.85
 
@@ -6,7 +6,7 @@ correlationFinder <- function  () {
     comment.char='', fill=T, stringsAsFactors=FALSE)
   rownames(tbl) <- tbl$X
   exclude.these.columns <-  which(sapply(1:ncol(tbl),
-                                    function(col) class(tbl [,col])) != 'numeric')
+    function(col) class(tbl [,col])) != 'numeric')
   if(length(exclude.these.columns) > 0)
     tbl <- tbl [, -exclude.these.columns]
   mtx.cor <- cor(t(as.matrix(tbl)), use='pairwise.complete.obs')
@@ -20,7 +20,7 @@ correlationFinder <- function  () {
     if(length(zz) > 0) {
       gene.a = rownames(mtx.cor) [r]
       genes.b = rownames(mtx.cor) [zz]
-      correlated.genes [[gene.a]] <- genes.b
+      correlated.genes[[gene.a]] <- genes.b
       ret[[ rownames(mtx.cor)[r] ]] <-
         rownames(mtx.cor)[zz]
       } # if length
