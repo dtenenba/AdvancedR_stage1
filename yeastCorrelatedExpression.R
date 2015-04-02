@@ -1,4 +1,4 @@
-correlationFinder <- function() {
+correlationFinder <- function() { 
   dataFile="sub_combined_complete_dataset_526G_198E.txt"
   cor.threshold <- 0.85
 
